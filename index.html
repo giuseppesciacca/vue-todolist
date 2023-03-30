@@ -48,18 +48,19 @@
                                 ToDo Archiviati
                             </button>
                         </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
-                                <ul>
+                                <ul v-if="tasksDone.length > 0">
                                     <li v-for="(item, index) in tasksDone" class="py-1">
-                                        {{item.text}}
+                                        <span class="me-2">{{item.text}}</span>
                                         <i class="fa-solid fa-trash-can" style="color: #57595c;"
                                             @click="deleteItemArchivied(index)"></i>
                                     </li>
                                 </ul>
+                                <p v-else>Niente archiviato!</p>
                                 <button v-if="tasksDone.length > 0" class="btn btn-danger" @click="emptyTrash">Svuota
-                                    tutto</button>
+                                    archivio</button>
                             </div>
                         </div>
                     </div>
