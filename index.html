@@ -33,9 +33,8 @@
 
                 <ul v-if="list.length > 0">
                     <li v-for="(item, index) in list"
-                        :class="(item.done === true) ? 'text-decoration-line-through' : ''" class="py-1"
-                        @click="textLineThrough(item)">
-                        <span class="me-2">{{item.text}}</span>
+                        :class="(item.done === true) ? 'text-decoration-line-through' : ''" class="py-1">
+                        <span class="me-2" @click="textLineThrough(item)">{{item.text}}</span>
                         <button class="btn-close" @click="deleteItem(item, index)"></button>
                     </li>
                 </ul>
