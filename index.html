@@ -33,7 +33,7 @@
 
                 <ul v-if="list.length > 0">
                     <li v-for="(item, index) in list"
-                        :class="(item.done === true) ? 'text-decoration-line-through' : ''">
+                        :class="(item.done === true) ? 'text-decoration-line-through' : ''" class="py-1">
                         <span class="me-2">{{item.text}}</span>
                         <button class="btn-close" @click="deleteItem(item, index)"></button>
                     </li>
@@ -52,8 +52,14 @@
                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <ul>
-                                    <li v-for="(item, index) in tasksDone">{{item.text}}</li>
+                                    <li v-for="(item, index) in tasksDone" class="py-1">
+                                        {{item.text}}
+                                        <i class="fa-solid fa-trash-can" style="color: #57595c;"
+                                            @click="deleteItemArchivied(index)"></i>
+                                    </li>
                                 </ul>
+                                <button v-if="tasksDone.length > 0" class="btn btn-danger" @click="emptyTrash">Svuota
+                                    tutto</button>
                             </div>
                         </div>
                     </div>

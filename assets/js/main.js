@@ -58,6 +58,12 @@ createApp({
             } else {
                 alert('Inserisci almeno 4 caratteri');
             }
+        },
+        deleteItemArchivied(index) {
+            this.tasksDone.splice(index, 1)
+        },
+        emptyTrash() {
+            this.tasksDone = [];
         }
     },
 }).mount('#app')
