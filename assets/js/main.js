@@ -69,6 +69,13 @@ createApp({
         },
         emptyTrash() {
             this.tasksDone = [];
+        },
+        textLineThrough(item) {
+            if (item.done == false) {
+                item.done = true;
+            } else {
+                item.done = false;
+            }
         }
     },
 }).mount('#app')
