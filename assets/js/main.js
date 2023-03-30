@@ -53,14 +53,14 @@ createApp({
                         text: this.addText,
                         done: false
                     },
-                    this.addText = '',
-                )
+                );
+                this.addText = '';
             } else {
                 alert('Inserisci almeno 4 caratteri');
             }
         },
         deleteItemArchivied(index) {
-            this.tasksDone.splice(index, 1)
+            this.tasksDone.splice(index, 1);
         },
         emptyTrash() {
             this.tasksDone = [];
