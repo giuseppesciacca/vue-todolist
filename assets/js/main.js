@@ -34,12 +34,27 @@ createApp({
                     text: 'Imparare php',
                     done: false
                 },
-            ]
+            ],
+            addText: '',
         }
     },
     methods: {
         deleteItem(index) {
             this.list.splice(index, 1)
+        },
+        addToDo() {
+            console.log(this.addText);
+            if (this.addText.length > 3) {
+                this.list.push(
+                    {
+                        text: this.addText,
+                        done: false
+                    },
+                    this.addText = '',
+                )
+            } else {
+                alert('Inserisci almeno 4 caratteri');
+            }
         }
     },
 }).mount('#app')

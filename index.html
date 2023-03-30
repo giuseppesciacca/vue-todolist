@@ -24,10 +24,15 @@
         <!-- /#app_header -->
 
         <main id="app_main">
+            <div>
+                <input type="text" v-model.trim="addText" placeholder="Aggiungi una cosa da fare" class="m-3 p-1 w-25">
+                <button class="btn btn-outline-danger p-1" @click="addToDo()">Aggiungi</button>
+            </div>
+
             <ul v-for="(item, index) in list" :class="(item.done === true) ? 'text-decoration-line-through' : ''">
                 <li>
-                    {{item.text}}
-                    <i class="fa-solid fa-square-xmark text-danger px-3" @click="deleteItem(index)"></i>
+                    <span class="me-2">{{item.text}}</span>
+                    <button class="btn-close" @click="deleteItem(index)"></button>
                 </li>
             </ul>
         </main>
