@@ -24,8 +24,11 @@
         <!-- /#app_header -->
 
         <main id="app_main">
-            <ul v-for="item in list" :class="(item.done === true) ? 'text-decoration-line-through' : ''">
-                <li>{{item.text}}</li>
+            <ul v-for="(item, index) in list" :class="(item.done === true) ? 'text-decoration-line-through' : ''">
+                <li>
+                    {{item.text}}
+                    <i class="fa-solid fa-square-xmark text-danger px-3" @click="deleteItem(index)"></i>
+                </li>
             </ul>
         </main>
         <!-- /#app_main -->
