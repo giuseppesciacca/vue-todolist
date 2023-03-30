@@ -36,11 +36,14 @@ createApp({
                 },
             ],
             addText: '',
+            tasksDone: [],
         }
     },
     methods: {
-        deleteItem(index) {
-            this.list.splice(index, 1)
+        deleteItem(item, index) {
+            this.list.splice(index, 1);
+            this.tasksDone.push(item);
+            console.log(this.tasksDone);
         },
         addToDo() {
             console.log(this.addText);

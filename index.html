@@ -24,23 +24,43 @@
         <!-- /#app_header -->
 
         <main id="app_main">
-            <div>
-                <input type="text" v-model.trim="addText" placeholder="Aggiungi una cosa da fare" class="m-3 p-1 w-25">
-                <button class="btn btn-outline-danger p-1" @click="addToDo()">Aggiungi</button>
-            </div>
+            <div class="container">
+                <div>
+                    <input type="text" v-model.trim="addText" placeholder="Aggiungi una cosa da fare"
+                        class="m-3 p-1 w-25">
+                    <button class="btn btn-outline-danger p-1" @click="addToDo()">Aggiungi</button>
+                </div>
 
-            <ul v-for="(item, index) in list" :class="(item.done === true) ? 'text-decoration-line-through' : ''">
-                <li>
-                    <span class="me-2">{{item.text}}</span>
-                    <button class="btn-close" @click="deleteItem(index)"></button>
-                </li>
-            </ul>
+                <ul v-if="list.length > 0">
+                    <li v-for="(item, index) in list"
+                        :class="(item.done === true) ? 'text-decoration-line-through' : ''">
+                        <span class="me-2">{{item.text}}</span>
+                        <button class="btn-close" @click="deleteItem(item, index)"></button>
+                    </li>
+                </ul>
+                <p v-else>La lista è vuota! Nothing ToDo</p>
+
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                ToDo Archiviati
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <ul>
+                                    <li v-for="(item, index) in tasksDone">{{item.text}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
         </main>
         <!-- /#app_main -->
-
-
-
-
     </div>
 
 
