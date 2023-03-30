@@ -27,7 +27,7 @@
             <div class="container">
                 <div>
                     <input type="text" v-model.trim="addText" placeholder="Aggiungi una cosa da fare"
-                        class="m-3 p-1 w-25">
+                        class="m-3 p-1 w-25" @keyup.enter="addToDo()">
                     <button class="btn btn-outline-danger p-1" @click="addToDo()">Aggiungi</button>
                 </div>
 
